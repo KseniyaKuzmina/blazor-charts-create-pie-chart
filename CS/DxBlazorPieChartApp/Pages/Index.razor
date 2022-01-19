@@ -1,0 +1,57 @@
+﻿@page "/"
+
+<DxPieChart Data="@infos"
+            Diameter="1"
+            InnerDiameter="0.5"
+            LabelOverlap="PieChartLabelOverlap.Shift" 
+            Width="920" Height="440">
+    <DxPieChartSeries T="SessionInfo"
+                      TArgument="string"
+                      TValue="double"
+                      ArgumentField="i => i.Country"
+                      ValueField="i => i.Total">
+        <DxChartSeriesLabel Visible="true"
+                            Position="RelativePosition.Outside">
+            <DxChartSeriesLabelConnector Visible="true" />
+        </DxChartSeriesLabel>
+    </DxPieChartSeries>
+    <DxChartTitle Text="Website Sessions by Country">
+        <DxChartSubTitle Text="Weekly Report" />
+    </DxChartTitle>
+    <DxChartLegend HorizontalAlignment="HorizontalAlignment.Right"
+                   VerticalAlignment="VerticalEdge.Top"
+                   Orientation="Orientation.Vertical" />
+    <DxChartTooltip Enabled="true"
+                    Position="RelativePosition.Outside">
+        <div style="margin: 0.75rem">
+            <div class="font-weight-bold">@context.Point.Argument</div>
+            <div>Sessions: @($"{context.Point.Value}")</div>
+        </div>
+    </DxChartTooltip>
+</DxPieChart>
+
+@code {
+    private SessionInfo[] infos;
+    protected override void OnInitialized() {
+        infos = GetSessionInfos();
+    }
+    public class SessionInfo {
+        public string Country { get; set; }
+        public int Total { get; set; }
+    }
+    public SessionInfo[] GetSessionInfos() {
+        SessionInfo[] sales = new SessionInfo[] {
+            new SessionInfo() { Country = "China",          Total = 16591},
+            new SessionInfo() { Country = "United States",  Total = 10286},
+            new SessionInfo() { Country = "India",          Total = 7978},
+            new SessionInfo() { Country = "South Korea",    Total = 6118},
+            new SessionInfo() { Country = "Germany",        Total = 5385},
+            new SessionInfo() { Country = "Turkey",         Total = 5064},
+            new SessionInfo() { Country = "Vietnam",        Total = 2804},
+            new SessionInfo() { Country = "United Kingdom", Total = 2451},
+            new SessionInfo() { Country = "Italy",          Total = 2130},
+            new SessionInfo() { Country = "Brazil",         Total = 2093},
+        };
+        return sales;
+    }
+}
