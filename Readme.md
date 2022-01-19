@@ -21,3 +21,5 @@ Implementation details: some steps, code snippets, and other technical informati
 
 ## More Examples
 
+* [How to implement a Theme Switcher in Blazor applications](https://github.com/DevExpress-Examples/blazor-theme-switcher)
+* [Charts for Blazor - How to filter the chart based on DataGrid selection](https://github.com/DevExpress-Examples/blazor-Charts-how-to-filter-the-chart-based-on-DataGrid-selection)
