@@ -10,7 +10,7 @@ This example demonstrates how to create a DevExpress Blazor PieChart, bind it to
 
 ![Pie Chart](images/blazor-pie-chart.png)
 
-## Files to Look At
+## Files to Review
 
 - [Index.razor](./CS/DxBlazorPieChartApp/Pages/Index.razor)
 
